@@ -13,9 +13,11 @@ func main() {
 
 	//Create Handlers
 	hh := handlers.NewHello(l)
+	gh := handlers.NewGoodbye(l)
 
 	sm := http.NewServeMux()
-	sm.Handle("/", hh)
+	sm.Handle("/hello", hh)
+	sm.Handle("/goodbye", gh)
 
 	http.ListenAndServe(":8080", sm)
 
